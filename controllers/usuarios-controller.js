@@ -29,7 +29,7 @@ exports.cadastrarUsuario = (req, res, next) => {
                                         request: {
                                             tipo: 'GET',
                                             descricao: 'retorna todos os usuarios',
-                                            URL: 'http://localhost:3000/usuarios'
+                                            URL: 'https://primeira-rest-api.herokuapp.com/usuarios'
                                         }
                                     }
                                 }

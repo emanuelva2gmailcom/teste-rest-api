@@ -31,7 +31,7 @@ exports.getPedido = (req, res, next) => {
                                     request: {
                                         tipo: 'GET',
                                         descricao: 'retorna os detalhes de um pedido especifico',
-                                        URL: 'http://localhost:3000/pedidos' + pedidos.id_pedidos
+                                        URL: 'https://primeira-rest-api.herokuapp.com/pedidos' + pedidos.id_pedidos
                                     }
                                 }
                             }),
@@ -72,7 +72,7 @@ exports.postPedido = (req, res, next) => {
                                 request: {
                                     tipo: 'GET',
                                     descricao: 'retorna todos os pedidos',
-                                    URL: 'http://localhost:3000/pedidos'
+                                    URL: 'https://primeira-rest-api.herokuapp.com/pedidos'
                                 }
                             }
                         }
@@ -104,7 +104,7 @@ exports.getSinglePedido = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna todos os pedidos',
-                            URL: 'http://localhost:3000/pedidos'
+                            URL: 'https://primeira-rest-api.herokuapp.com/pedidos'
                         }
                     }
                 }
@@ -140,7 +140,7 @@ exports.patchPedido = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna os detalhes de um pedido especifico',
-                            URL: 'http://localhost:3000/pedidos' + req.body.id_pedido
+                            URL: 'https://primeira-rest-api.herokuapp.com/pedidos' + req.body.id_pedido
                         }
                     }
                 }
@@ -169,7 +169,7 @@ exports.deletePedido = (req, res, next) => {
                     request: {
                         tipo: 'POST',
                         descricao: 'Insere um pedido',
-                        URL: 'http://localhost:3000/pedidos',
+                        URL: 'https://primeira-rest-api.herokuapp.com/pedidos',
                         body: {
                             id_produto: 'Number',
                             quantidade: 'Number'
