@@ -19,7 +19,7 @@ exports.getProdutos = (req, res, next) => {
                             request: {
                                 tipo: 'GET',
                                 descricao: 'retorna os detalhes de um produto especifico',
-                                URL: process.env.URL_API + prod.id_produtos
+                                URL: process.env.URL_API + 'produtos/' + prod.id_produtos
                             }
                         }
                     })
@@ -122,7 +122,7 @@ exports.patchProduto = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna os detalhes de um produto especifico',
-                            URL: process.env.URL_API + req.body.id_produtos
+                            URL: process.env.URL_API + 'produtos/' + req.body.id_produtos
                         }
                     }
                 }

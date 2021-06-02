@@ -140,7 +140,7 @@ exports.patchPedido = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna os detalhes de um pedido especifico',
-                            URL: process.env.URL_API + req.body.id_pedido
+                            URL: process.env.URL_API + 'pedidos/' + req.body.id_pedido
                         }
                     }
                 }
