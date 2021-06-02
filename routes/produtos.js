@@ -3,25 +3,17 @@ const router = express.Router()
 const multer = require('multer')
 const login = require('../middleware/login')
 const produtoController = require('../controllers/produtos-controller')
-
-function getDataAtual(data) {
-    var dia = String(data.getDate()).padStart(2, '0');
-    var mes = String(data.getMonth() + 1).padStart(2, '0');
-    var ano = data.getFullYear();
-    dataAtual = dia + '-' + mes + '-' + ano;
-    return dataAtual
-}
+const getDataAtual = require('../Functions/getDate')
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, 'uploads/')
-        console.log('vc sabe oq isso significa')
     },
     filename: function(req, file, cb) {
         var data = new Date();
         var dataAtual = getDataAtual(data)
-        var uniqueSuffix = dataAtual + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.originalname)
+        const uniqueSuffix = dataAtual + '-' + Math.round(Math.random() * 1E9)
+        cb(null, uniqueSuffix + '-' + file.originalname)
     }
 })
 
