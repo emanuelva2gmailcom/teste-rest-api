@@ -19,7 +19,7 @@ exports.getProdutos = (req, res, next) => {
                             request: {
                                 tipo: 'GET',
                                 descricao: 'retorna os detalhes de um produto especifico',
-                                URL: 'https://primeira-rest-api.herokuapp.com/produtos' + prod.id_produtos
+                                URL: process.env.URL_API + prod.id_produtos
                             }
                         }
                     })
@@ -51,7 +51,7 @@ exports.postProduto = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna todos os produtos',
-                            URL: 'https://primeira-rest-api.herokuapp.com/produtos'
+                            URL: process.env.URL_API
                         }
                     }
                 }
@@ -85,7 +85,7 @@ exports.getSingleProduto = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna todos os produtos',
-                            URL: 'https://primeira-rest-api.herokuapp.com/produtos'
+                            URL: process.env.URL_API
                         }
                     }
                 }
@@ -122,7 +122,7 @@ exports.patchProduto = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna os detalhes de um produto especifico',
-                            URL: 'https://primeira-rest-api.herokuapp.com/produtos' + req.body.id_produtos
+                            URL: process.env.URL_API + req.body.id_produtos
                         }
                     }
                 }
@@ -151,7 +151,7 @@ exports.deleteProduto = (req, res, next) => {
                     request: {
                         tipo: 'POST',
                         descricao: 'Insere um produto',
-                        URL: 'https://primeira-rest-api.herokuapp.com/produtos',
+                        URL: process.env.URL_API,
                         body: {
                             nome: 'String',
                             preco: 'Number'

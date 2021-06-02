@@ -31,7 +31,7 @@ exports.getPedido = (req, res, next) => {
                                     request: {
                                         tipo: 'GET',
                                         descricao: 'retorna os detalhes de um pedido especifico',
-                                        URL: 'https://primeira-rest-api.herokuapp.com/pedidos' + pedidos.id_pedidos
+                                        URL: process.env.URL_API + pedidos.id_pedidos
                                     }
                                 }
                             }),
@@ -72,7 +72,7 @@ exports.postPedido = (req, res, next) => {
                                 request: {
                                     tipo: 'GET',
                                     descricao: 'retorna todos os pedidos',
-                                    URL: 'https://primeira-rest-api.herokuapp.com/pedidos'
+                                    URL: process.env.URL_API
                                 }
                             }
                         }
@@ -104,7 +104,7 @@ exports.getSinglePedido = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna todos os pedidos',
-                            URL: 'https://primeira-rest-api.herokuapp.com/pedidos'
+                            URL: process.env.URL_API
                         }
                     }
                 }
@@ -140,7 +140,7 @@ exports.patchPedido = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: 'retorna os detalhes de um pedido especifico',
-                            URL: 'https://primeira-rest-api.herokuapp.com/pedidos' + req.body.id_pedido
+                            URL: process.env.URL_API + req.body.id_pedido
                         }
                     }
                 }
@@ -169,7 +169,7 @@ exports.deletePedido = (req, res, next) => {
                     request: {
                         tipo: 'POST',
                         descricao: 'Insere um pedido',
-                        URL: 'https://primeira-rest-api.herokuapp.com/pedidos',
+                        URL: process.env.URL_API,
                         body: {
                             id_produto: 'Number',
                             quantidade: 'Number'
