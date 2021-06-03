@@ -1,6 +1,31 @@
-const mysql = require('../mysql').pool
+const mysql = require('../mysql')
 
-exports.getProdutos = (req, res, next) => {
+exports.getProdutos = async(req, res, next) => {
+    try {
+        const result = await mysql.execute("SELECT * FROM produtos")
+        const response = {
+            quantidade: result.length,
+            produtos: result.map(prod => {
+                return {
+                    id_produtos: prod.id_produtos,
+                    nome: prod.nome,
+                    preco: prod.preco,
+                    imagem_produto: prod.imagem_produto,
+                    request: {
+                        tipo: 'GET',
+                        descricao: 'retorna os detalhes de um produto especifico',
+                        URL: process.env.URL_API + 'produtos/' + prod.id_produtos
+                    }
+                }
+            })
+        }
+        res.status(200).send(response)
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
+/*exports.getProdutos = (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(
@@ -29,7 +54,7 @@ exports.getProdutos = (req, res, next) => {
         )
     })
 
-}
+}*/
 
 exports.postProduto = (req, res, next) => {
     console.log(req.usuario)
